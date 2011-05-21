@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 echo "=== Basic config"
-`cd root`
-if (($?)) ; then read ; fi
 echo "=== System update"
 read
 echo `apt-get update -y`
