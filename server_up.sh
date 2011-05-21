@@ -1,9 +1,5 @@
 #!/usr/bin/env bash
 echo "=== Basic config"
-echo "=== System update"
-read
-echo `apt-get update -y`
-echo `apt-get upgrade --show-upgraded -y`
 echo "=== Installing basic server programs... (mysql, htop and more... :] )"
 read
 echo`apt-get install -y mysql-server libmysqld-dev libmysql++3 libmysql++-dev htop build-essential autoconf libcurl4-openssl-dev`
