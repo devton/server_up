@@ -1,22 +1,27 @@
 #!/usr/bin/env bash
 echo "=== Basic config"
+
 echo "=== Installing basic server programs... (mysql, htop and more... :] )"
-exec 'apt-get install -y mysql-server libmysqld-dev libmysql++3 libmysql++-dev htop build-essential autoconf libcurl4-openssl-dev'
+install_command="apt-get install -y mysql-server libmysqld-dev libmysql++3 libmysql++-dev htop build-essential autoconf libcurl4-openssl-dev"
+echo `$install_command`
+
 echo "=== Creating /opt/fonts for save the fonts"
-`mkdir /opt/fonts`
+mkdir_fonts="mkdir /opt/fonts"
+echo `$mkdir_fonts`
+
 echo "=== Ruby 1.9.2 download..."
-exec 'wget ftp://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p180.tar.gz'
-exec 'tar -zxvf ruby-1.9.2-p180.tar.gz;cd ruby-1.9.2-p180'
+wget_ruby="wget ftp://ftp.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p180.tar.gz;tar -zxvf ruby-1.9.2-p180.tar.gz;cd ruby-1.9.2-p180"
+echo `$wget_ruby`
+
 echo "=== Configure and Make ;) ..."
-exec './configure'
-exec 'make'
-echo "=== Make install ..."
-exec 'make install'
+make_ruby="./configure; make; make install"
+echo `$make_ruby`
 echo "=== Finished the ruby "`ruby -v`
+
 echo "Other libs..."
-exec 'cd ext/zlib;ruby extconf.rb'
-exec 'make;make install'
+make_other_libs="cd ext/zlib;ruby extconf.rb;make;make install"
+echo `$make_other_libs`
+
 echo "=== Download passenger"
-exec 'wget http://rubyforge.org/frs/download.php/74471/passenger-3.0.5.tar.gz'
-echo "==== Instalando o passenger"
-exec 'tar -zxvf passenger-3.0.5.tar.gz; cd passenger-3.0.5; ./bin/passenger-install-nginx-module'
+wget_passenger_and_install="wget http://rubyforge.org/frs/download.php/74471/passenger-3.0.5.tar.gz;tar -zxvf passenger-3.0.5.tar.gz; cd passenger-3.0.5; ./bin/passenger-install-nginx-module"
+echo `$wget_passenger_and_install`
