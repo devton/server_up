@@ -29,3 +29,9 @@ read
 `cd ext/zlib;ruby extconf.rb`
 `make;make install`
 
+echo "=== Download passenger"
+read
+`wget http://rubyforge.org/frs/download.php/74471/passenger-3.0.5.tar.gz`
+echo "==== Instalando o passenger"
+read
+`tar -zxvf passenger-3.0.5.tar.gz; cd passenger-3.0.5; ./bin/passenger-install-nginx-module`
